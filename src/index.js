@@ -9,4 +9,4 @@ import router from './routes'
 
 
 
-  app.listen(9000, () => console.log('Example app listening on port 9000!'))
+  app.listen(process.env.PORT || 3000, () => console.log('Example app listening on port 3000!'))
