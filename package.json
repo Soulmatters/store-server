@@ -14,7 +14,8 @@
   "scripts": {
     "babel-node": "babel-node --presets=latest",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --exec npm run babel-node -- ./index.js"
+    "build": "webpack",
+    "start": "node ./build/backend.js"
   },
   "keywords": [],
   "author": "",
