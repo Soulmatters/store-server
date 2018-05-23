@@ -4,13 +4,13 @@
   "description": "",
   "main": "index.js",
   "babel": {
-  "presets": [
-    "latest"
-  ]
-},
-"engines": {
-  "node": "8.11.2"
-},
+    "presets": [
+      "latest"
+    ]
+  },
+  "engines": {
+    "node": "8.11.2"
+  },
   "scripts": {
     "babel-node": "babel-node --presets=latest",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -24,6 +24,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
+    "babel-preset-env": "^1.7.0",
     "cors": "^2.8.4",
     "express": "^4.16.3",
     "woocommerce-api": "^1.4.2"
