@@ -12,12 +12,13 @@
     "node": "8.11.2"
   },
   "scripts": {
-    "babel-node": "babel-node --presets=latest",
+    "babel-node": "babel-node --presets=env",
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf build && mkdir build",
     "build-babel": "babel -d ./build ./src -s",
     "build": "npm run clean && npm run build-babel",
-    "start": "npm run build && node ./build/index.js"
+    "start": "npm run build && node ./build/index.js",
+    "dev": "nodemon --exec npm run babel-node  ./src/index.js"
   },
   "keywords": [],
   "author": "",
@@ -26,7 +27,9 @@
     "axios": "^0.18.0",
     "babel-preset-env": "^1.7.0",
     "cors": "^2.8.4",
+    "dotenv": "^5.0.1",
     "express": "^4.16.3",
+    "morgan": "^1.9.0",
     "woocommerce-api": "^1.4.2"
   },
   "devDependencies": {

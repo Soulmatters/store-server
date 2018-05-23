@@ -1,9 +1,10 @@
 import  express from 'express';
 const app = express();
 import router from './routes'
+import morgan from 'morgan'
 
 
-
+    app.use(morgan('dev'))
     app.use('/api', router);
     app.get('/', (req, res) => res.send('Hello World!'))
 

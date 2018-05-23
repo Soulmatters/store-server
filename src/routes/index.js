@@ -2,16 +2,23 @@ import { Router } from 'express';
 const router = Router();
 import { products, productById } from './../controllers/products.js'
 import cors from 'cors';
-
-const username = 'ck_bee8ba8ae89ee594ef31e31d1016156b51162ad0';
-const password = 'cs_d3edf0891e380e813e19d30d25ccdb87472165f5';
-
+import dotenv from 'dotenv';
+dotenv.config()
+const username = process.env.username;
+const password = process.env.password;
+console.log(username)
 var auth = 'Basic ' + new Buffer(username + ':' + password).toString('base64');
 
-
+var whitelist = process.env.whitelist;
+console.log(whitelist)
 const corsOptions = {
-    origin: 'http://localhost:6060',
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+    origin: function (origin, callback) {
+        if (whitelist.indexOf(origin) !== -1) {
+          callback(null, true)
+        } else {
+          callback(new Error('Not allowed by CORS'))
+        }
+      }
   }
 
 
