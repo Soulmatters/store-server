@@ -20,9 +20,12 @@ const corsOptions = {
         }
       }
   }
+  var corsOptions2 = {
+    origin: '*',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  }
 
-
-    router.get('/products', cors(corsOptions), (req, res) => {
+    router.get('/products', cors(corsOptions2), (req, res) => {
 
         products(auth).then(response => {
             res.json(response.data)
@@ -34,10 +37,10 @@ const corsOptions = {
     });
 
 
-    router.get('/product/:id', cors(corsOptions),(req, res) => {
+    router.get('/product/:slug', cors(corsOptions2),(req, res) => {
 
-        productById(req.params.id, auth).then(response => {
-          res.json(response.data)
+        productById(req.params.slug, auth).then(response => {
+          res.json(response.data[0])
       }).catch(err => {
           res.send({err: 'err'})
       })

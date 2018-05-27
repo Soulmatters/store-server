@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-export function productById(id, auth){
-    const product = axios.get(`https://yves.fashion/wp-json/wc/v1/products/${id}`,{
+export function productById(slug, auth){
+    const product = axios.get(`https://yves.fashion/wp-json/wc/v1/products/?slug=${slug}`,{
         headers: {
             Authorization: auth
         }
